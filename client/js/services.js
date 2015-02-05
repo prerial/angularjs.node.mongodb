@@ -5,44 +5,27 @@ angular.module('flapperServices', ['ngResource'])
         };
         o.getAll = function() {
             var res = $resource('posts')
-            return res.query().$promise.then(function(data) {
+            res.query().$promise.then(function(data) {
                 angular.copy(data, o.posts);
             });
         };
         o.create = function(post) {
-          return $http.post('/posts', post).success(function(data){
+          $http.post('/posts', post).success(function(data){
             o.posts.push(data);
           });
         };
-        o.delete = function(post) {
+        o.delete = function(post, scope) {
             var res = $resource('/posts/'+post._id, { '_id':post._id })
-            return res.remove({ '_id':post._id }).$promise.then(function(data) {
-                angular.copy(data, o.posts);
+           res.remove({ '_id':post._id }).$promise.then(function(data) {
+                angular.copy(data.data, o.posts);
             });
         };
-        o.upvote = function(post) {
-          return $http.put('/posts/' + post._id + '/upvote')
-            .success(function(data){
-              post.upvotes += 1;
+        o.upvote = function(post, scope) {
+            var res = $resource('/posts/upvote', null,{'update': { method:'PUT' }});
+            res.update({ 'title':post.title, 'upvotes':post.upvotes }).$promise.then(function(data) {
+                angular.copy(data.data, o.posts);
             });
         };
         return o;
-    }])
-
-    .factory('db', ['$resource', '$http',
-        function($resource, $http) {
-            var actions = {
-                    'count': {method:'PUT', params:{_id: 'count'}},
-                    'distinct': {method:'PUT', params:{_id: 'distinct'}},
-                    'find': {method:'PUT', params:{_id: 'find'}, isArray:true},
-                    'group': {method:'PUT', params:{_id: 'group'}, isArray:true},
-                    'mapReduce': {method:'PUT', params:{_id: 'mapReduce'}, isArray:true} ,
-                    'aggregate': {method:'PUT', params:{_id: 'aggregate'}, isArray:true}
-                }
-            var db = {};
-            db.posts = $resource('/posts/:_id', {}, actions);
-            return db;
-        }
-]);
-
+}]);
 

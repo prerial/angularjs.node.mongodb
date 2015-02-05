@@ -70,6 +70,23 @@ app.del('/posts/:_id', function(req, res) {
     });
 });
 
+app.put('/posts/upvote', function(req, res) {
+    console.log("Id: " + req.body._id);
+    console.log("Upvote: " + req.body.upvotes);
+    db.collection('posts').update({title:req.body.title}, {$set: {upvotes: req.body.upvotes}}, function(err, post){
+        console.log("Id: " + post);
+        if(err){
+            console.log("Error: " + err);
+            return next(err);
+        }
+        db.collection('posts').find(function(err, posts){
+            if(err){ return next(err); }
+            res.json({data:posts});
+        });
+  });
+});
+
+
 app.listen(3000, function() {
     console.log("Listening on 3000");
 });

@@ -8,7 +8,6 @@ db.collection('posts').count( function (erros, doc) {
         var count = 0;
         posts.forEach(function (post) {
             console.log("Processing post id: " + post.id );
-            post.details = JSON.parse(fs.readFileSync(__dirname+'/client/data/posts.json').toString());
             post._id = post.id;
             delete post.id;
             db.collection('posts').insert(post, function (err, doc) {
