@@ -2,56 +2,56 @@
     {
         "id": "post1", 
         "title": "Post 1", 
-        "link": "google.com", 
+        "link": "http://google.com", 
         "upvotes":0,
         "message": "" 
     }, 
     {
         "id": "post2", 
         "title": "Post 2", 
-        "link": "google.com", 
+        "link": "http://google.com", 
         "upvotes":0,
         "message": "" 
     }, 
     {
         "id": "post3", 
         "title": "Post 3", 
-        "link": "google.com", 
+        "link": "http://google.com", 
         "upvotes":0,
         "message": "" 
     }, 
     {
         "id": "post4", 
         "title": "Post 4", 
-        "link": "google.com", 
+        "link": "http://google.com", 
         "upvotes":0,
         "message": "" 
     }, 
     {
         "id": "post5", 
         "title": "Post 5", 
-        "link": "google.com", 
+        "link": "http://google.com", 
         "upvotes":0,
         "message": "" 
     }, 
     {
         "id": "post6", 
         "title": "Post 6", 
-        "link": "google.com", 
+        "link": "http://google.com", 
         "upvotes":0,
         "message": "" 
     }, 
     {
         "id": "post7", 
         "title": "Post 7", 
-        "link": "google.com", 
+        "link": "http://google.com", 
         "upvotes":0,
         "message": "" 
     }, 
     {
         "id": "post8", 
         "title": "Post 8", 
-        "link": "google.com", 
+        "link": "http://google.com", 
         "upvotes":0,
         "message": "" 
     }

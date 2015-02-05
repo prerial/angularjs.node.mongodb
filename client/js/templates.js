@@ -9,14 +9,14 @@ angular.module("template/home.html", []).run(["$templateCache", function($templa
         "  <div ng-repeat=\'post in posts|orderBy:\"-upvotes\"\'>\n" +
         "      <span class=\"glyphicon glyphicon-thumbs-up\" ng-click=\"incrementUpvotes(post)\" style='cursor:pointer'></span>\n" +
         "       <span style=\"font-size:20px; margin-left:10px;\">\n" +
-        "           <a ng-show=\"post.link\" href=\"{{post.link}}\">\n" +
+        "           <a ng-show=\"post.link\" ng-href=\"{{post.link}}\">\n" +
         "              {{post.title}}\n" +
         "          </a>\n" +
         "          <span ng-hide=\"post.link\">\n" +
         "              {{post.title}}\n" +
         "          </span>\n" +
         "          <span>\n" +
-        "            <a href=\"#/posts/{{post._id}}\">Comments</a>\n" +
+        "            <a ng-href=\"#/posts/{{post._id}}\">Comments</a>\n" +
         "          </span>\n" +
         "          - upvotes: {{post.upvotes}}\n" +
         "      </span>\n" +
@@ -40,7 +40,7 @@ angular.module("template/posts.html", []).run(["$templateCache", function($templ
 
         "<div class=\"page-header\">\n" +
         "  <h3>\n" +
-        "    <a ng-show=\"post.link\" href=\"{{post.link}}\">\n" +
+        "    <a ng-show=\"post.link\" ng-href=\"{{post.link}}\">\n" +
         "      {{post.title}}\n" +
         "    </a>\n" +
         "    <span ng-hide=\"post.link\">\n" +
