@@ -11,3 +11,9 @@
 
 - Get [Node.js][node-download].
 
+- install packages
+$ npm install
+
+- start Node
+$ node server
+
