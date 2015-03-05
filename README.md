@@ -14,6 +14,18 @@
 - install packages
 $ npm install
 
+### MongoDB
+ 
+- Download
+https://www.mongodb.org/downloads
+
+- Start MongoDB mongod.exe
+
+- Load database 
+$ node load
+
+### Application
+
 - start Node
 $ node server
 
